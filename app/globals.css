@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Optional: Add some custom styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9fc;
+}
+
+input::placeholder {
+  color: #9ca3af; /* Tailwind's gray-400 */
+}
+
+h1 {
+  letter-spacing: 2px;
+}

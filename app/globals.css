@@ -2,16 +2,238 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional: Add some custom styles */
+/* Global Styles */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f7f9fc;
+  background-color: #f7f9fc; /* Light gray background */
 }
 
+/* Input Placeholder Styling */
 input::placeholder {
   color: #9ca3af; /* Tailwind's gray-400 */
 }
 
+/* Header Styling */
 h1 {
   letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Word Wrapping - Prevent Overflow */
+.break-words {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; /* Ensures text wraps and doesn't overflow */
+}
+
+/* List Item Styling */
+li {
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Styling for Task Items */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  flex-wrap: wrap; /* Ensures that content wraps inside the container */
+}
+
+/* Flex Layout for Task Content */
+.task-content {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap; /* Allow content to wrap */
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Task Icon Image Styling */
+.task-img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px; /* Circle shape */
+  margin-right: 1rem;
+  flex-shrink: 0; /* Prevents shrinking of the image */
+}
+
+/* Task Text (Title and Description) Styling */
+.task-text {
+  flex-grow: 1;
+  max-width: calc(100% - 4rem); /* Ensure text content does not overflow */
+}
+
+/* Title Styling */
+.task-title {
+  font-size: 1.25rem; /* Larger font size */
+  font-weight: bold;
+  color: #4B5563; /* Tailwind gray-800 */
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.5rem;
+}
+
+/* Description Styling */
+.task-description {
+  font-size: 1rem;
+  color: #6B7280; /* Tailwind gray-600 */
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.25rem;
+  max-width: 100%; /* Allow text to wrap and not overflow */
+  word-wrap: break-word;
+}
+
+/* Task Submit Button Styling */
+.task-submit-btn {
+  background-color: #2563eb; /* Tailwind blue-600 */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem; /* Larger font */
+  font-weight: 700; /* Bold */
+  border-radius: 0.375rem; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.task-submit-btn:hover {
+  background-color: #1d4ed8; /* Tailwind blue-700 */
+}
+
+/* Complete Button Styling */
+.task-complete-btn {
+  background-color: #ef4444; /* Tailwind red-500 */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.task-complete-btn:hover {
+  background-color: #dc2626; /* Tailwind red-600 */
+}
+
+/* Error Message Styling */
+.error-message {
+  background-color: #fee2e2; /* Tailwind red-100 */
+  border-color: #fca5a5; /* Tailwind red-400 */
+  color: #b91c1c; /* Tailwind red-700 */
+  padding: 1rem;
+  border-radius: 0.375rem;
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.error-message button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  color: #f87171; /* Tailwind red-400 */
+  cursor: pointer;
+}
+
+.error-message button:hover {
+  color: #dc2626; /* Tailwind red-600 */
+}
+
+/* Task List Container Styling */
+.task-list-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Flexbox Layout for Task List */
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Styling the Form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.375rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Styling */
+.task-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  border: 2px solid #d1d5db; /* Tailwind gray-300 */
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.task-input:focus {
+  border-color: #2563eb; /* Tailwind blue-600 */
+  outline: none;
+}
+
+/* General Button Styling */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Page Background Styling */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-fixed {
+  background-attachment: fixed;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+/* Adjustments for Mobile */
+@media (max-width: 640px) {
+  .task-form {
+    width: 90%;
+  }
+
+  .task-list-container {
+    width: 90%;
+  }
+
+  .error-message {
+    width: 90%;
+  }
 }

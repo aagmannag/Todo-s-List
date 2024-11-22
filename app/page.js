@@ -65,22 +65,22 @@ const Page = () => {
       return (
         <li
           key={i}
-          className="flex items-center justify-between mb-4 p-4 bg-white shadow-lg rounded-lg"
+          className="task-item"
         >
-          <div className="flex items-center w-2/3">
+          <div className="task-content">
             <img
               src="https://img.freepik.com/premium-photo/list-icon-notebook-with-completed-todo-list-3d-render_471402-428.jpg"
               alt="Task Icon"
-              className="w-12 h-12 rounded-full mr-4"
+              className="task-img"
             />
-            <div>
-              <h5 className="text-xl font-bold text-gray-800">{t.title}</h5>
-              <h6 className="text-md text-gray-600">{t.desc}</h6>
+            <div className="task-text">
+              <h5 className="task-title">{t.title}</h5>
+              <h6 className="task-description">{t.desc}</h6>
             </div>
           </div>
           <button
             onClick={() => deleteHandler(i)}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded font-semibold transition-all"
+            className="task-complete-btn"
           >
             Complete
           </button>
@@ -106,45 +106,49 @@ const Page = () => {
         </h1>
         <form
           onSubmit={submitHandler}
-          className="flex flex-col items-center gap-4 p-8 bg-white bg-opacity-90 rounded-md mx-auto mt-8 w-3/4 sm:w-1/2 shadow-lg"
+          className="task-form"
         >
           <input
             type="text"
-            className="w-full text-xl border-gray-300 border-2 rounded-md px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="task-input"
             placeholder="Enter Title Here"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
             type="text"
-            className="w-full text-xl border-gray-300 border-2 rounded-md px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="task-input"
             placeholder="Enter Description Here"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-lg font-bold rounded-md shadow-md transition-all"
+            className="task-submit-btn"
           >
             Add Task
           </button>
         </form>
+
         {/* Popup for Error Message */}
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative w-3/4 sm:w-1/2 mx-auto mb-6">
+          <div className="error-message">
             <strong className="font-bold">Error:</strong>
             <span className="block sm:inline ml-2">{error}</span>
             <button
-              className="absolute top-0 right-0 px-4 py-3"
               onClick={() => setError("")}
             >
               <span className="text-red-500 font-bold">&times;</span>
             </button>
           </div>
         )}
+
         <hr className="my-8 border-gray-300" />
-        <div className="p-8 bg-white bg-opacity-90 rounded-md mx-auto w-3/4 sm:w-1/2 shadow-lg">
-          <ul className="space-y-4">{renderTask}</ul>
+
+        <div className="task-list-container">
+          <ul className="space-y-4">
+            {renderTask}
+          </ul>
         </div>
       </div>
     </div>
